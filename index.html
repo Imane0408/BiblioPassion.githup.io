@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0px;
+            padding: 0px;
+            background-color: beige;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: wheat;
+            color: white;
+        }
+
+        .welcome-title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            margin: 20px 0;
+        }
+
+        .welcome-title:hover {
+            transform: scale(1.2);
+        }
+
+        .welcome-pr {
+            font-size: 1.2rem;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto 20px;
+            line-height: 1.6;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        h3 {
+            color: black;
+        }
+
+        h3:hover {
+            transform: scale(1.2);
+            background-color: beige;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar input {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .search-bar button {
+            padding: 5px 10px;
+            border: none;
+            background-color: #555;
+            color: white;
+            cursor: pointer;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .search-bar button:hover {
+            background-color: #777;
+        }
+
+        nav .menu {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav .menu li {
+            position: relative;
+        }
+
+        nav .menu a {
+            text-decoration: none;
+            color: black;
+            padding: 5px 10px;
+        }
+
+        nav .menu a:hover {
+            background-color: beige;
+            border-radius: 5px;
+        }
+
+        .images-section {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .image-container {
+            width: 300px;
+            height: 150px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease;
+        }
+
+        .image-container:hover img {
+            transform: translateY(-40%);
+        }
+        .left-image,.right-image {
+            margin-top: 70px;
+        }
+        .middle-image {
+            margin-top: 0;
+        }
+        .description {
+            text-align: center;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .description h1 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .description p {
+            font-size: 1.2rem;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto 20px;
+            line-height: 1.6;
+
+        }
+
+        .start-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: olive;
+            border: 2px solid #000000;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .start-button:hover {
+            box-shadow: none;
+            background-color: #555;
+        }
+
+        hr {
+            width: 500px;
+            text-align: center;
+        }
+
+        .last-books {
+            text-align: center;
+            padding: 20px;
+            background-color: #f7f7f7;
+        }
+
+        .last-books h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .last-books hr {
+            margin: 10px auto;
+            width: 50%;
+            border: 1px solid #ddd;
+        }
+
+        .book-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .book {
+            width: 250px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 15px;
+        }
+
+        .book .price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #d35400;
+            margin-bottom: 10px;
+        }
+
+        .book img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .book h3 {
+            font-size: 18px;
+            color: #2c3e50;
+            margin: 10px 0;
+        }
+
+        .book p {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+
+        .about {
+
+            border-radius: 8px;
+            background-color: #b9c8bc;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .text {
+            width: 50%;
+        }
+
+        .text h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .text p {
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto 20px;
+            line-height: 1.6;
+            font-size: 1.1em;
+        }
+
+        .image img {
+            float: right;
+            width: 50%;
+            height: 60%;
+            margin-right: 10%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .Plus {
+            background-color: #032205;
+            color: white;
+            border-radius: 20px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .Plus a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .Plus:hover {
+            background-color: #45a049;
+        }
+
+        .double-section {
+            padding: 20px;
+            background-color: beige;
+        }
+
+        /* Conteneur des deux divs */
+        .content {
+            display: flex;
+            justify-content: space-between;
+            /* Séparation des divs */
+            gap: 20px;
+            /* Espace entre les divs */
+        }
+
+        /* Style des divs */
+        .right-div,
+        .left-div {
+            flex: 1;
+            /* Les deux divs prennent une largeur égale */
+            background-color: #d6c18a;
+            border: 1px solid #ddd;
+            width: 40%;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Ombre subtile */
+        }
+
+        /* Titres des sections */
+        .right-div h2,
+        .left-div h2 {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        /* Paragraphes */
+        .right-div p,
+        .left-div p {
+            font-size: 1em;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .IMAGES-gallery {
+            padding: 20px;
+            background-color: beige;
+            text-align: center;
+        }
+
+        .IMAGES {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .IMAGES img {
+            width: 300px;
+            height: auto;
+            border: 2px solid black;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .IMAGES img:hover {
+            transform: scale(1.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            color: rgb(44, 40, 40);
+            margin-top: 20px;
+        }
+
+        /* Section principale */
+        .books-section {
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        /* Titre principal */
+        .main-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .main-header h1 {
+            font-size: 2em;
+            color: #333;
+        }
+
+        .main-header p {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        /* Contenu principal */
+        .content {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        /* Ligne noire solide */
+        .line {
+            width: 5px;
+            background-color: black;
+            height: auto;
+            /* S'adapte à la hauteur du contenu */
+        }
+
+        /* Types de livres */
+        .book-types {
+            flex: 1;
+        }
+
+        .book-type {
+            margin-bottom: 20px;
+        }
+
+        .book-type h2 {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .book-type p {
+            font-size: 1em;
+            color: #555;
+            line-height: 1.6;
+        }
+
+
+        .commentaire {
+      text-align: center;
+      font-size: 1.5rem;
+      color: #333;
+      margin-top: 20px;
+    }
+
+    .testimonials-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 20px;
+      padding: 0 20px;
+    }
+
+    .testimonial-card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .testimonial-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .testimonial-image {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin: 0 auto 15px;
+    }
+
+    .testimonial-name {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .testimonial-rating {
+      color: #FFD700;
+      margin-bottom: 10px;
+    }
+
+    .testimonial-text {
+      font-size: 1rem;
+      color: #666;
+      line-height: 1.5;
+    }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.jfif" alt="logo bibliopassion">
+            <h3>BiblioPassion</h3>
+        </div>
+        <div search-bar>
+            <input type="text" placeholder="Rechercher....">
+            <button type="submit">🔍</button>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html"><span class="icon">🏠</span>Accueil</a></li>
+                <li><a href="PourVous.html"><span class="icon">ℹ️</span>À propos</a></li>
+                <li><a href="categories.html"><span class="icon">💼</span>Catégories</a></li>
+                <li><a href="contact.html"><span class="icon">📞</span>Se Connecter</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1 class="welcome-title" align="center">Bienvenue à la Bibliothèque Virtuelle </h1>
+    <p class="welcome-pr">Plongez dans un océan de livres et d'histoires fascinantes. Découvrez votre prochaine
+        lecture dès aujourd'hui!</p>
+    <div class="images-section">
+        <div class="image-container left-image"><img src="images/photoPR.jpeg" alt="image1"></div>
+        <div class="image-container middle-image"><img src="images/pgoty.jpg" alt="imagr2"></div>
+        <div class="image-container middle-image"><img src="images/WhatsApp Image 2025-01-03 at 12.51.11.jpeg" alt="imagr4"></div>
+        <div class="image-container right-image"><img src="images/WhatsApp Image 2025-01-03 at 12.51.11 (1).jpeg" alt="imagr3">
+        </div>
+
+    </div>
+    <div class="description">
+        <h1 align="center">Plongée littéraire</h1>
+        <p align="center">Entrez dans un monde où chaque page vous transporte. Découvrez des histoires qui
+            éveillent l'imagination et nourrissent l'âme. Bienvenue dans votre bibliothèque virtuelle !
+        </p>
+        <button class="start-button" onclick="location.href='contact.html'">Commencer l'aventure</button>
+    </div>
+    <hr>
+    <section class="last-books">
+        <h2>Derniéres histoires</h2>
+        <hr>
+        <div class="book-list">
+            <div class="book">
+                <div class="price">€15.99</div>
+                <img src="images/book.jfif" alt="Le Petit Prince">
+                <h3>Le Petit Prince</h3>
+                <p>Un classique intemporel qui touche le cœur.</p>
+            </div>
+            <div class="book">
+                <div class="price">€14.99</div>
+                <img src="images/book1.jpg" alt="My life with the walter Boys">
+                <h3>My life with the walter Boys</h3>
+                <p>Une histoire captivante sur l'amour, la famille, et les défis de l'adolescence.</p>
+            </div>
+            <div class="book">
+                <div class="price">€9.99</div>
+                <img src="images/book2.jfif" alt="Roméo et Juliette">
+                <h3>Roméo et Juliette</h3>
+                <p>Une histoire d'amour tragique qui ne vieillit jamais.</p>
+            </div>
+            <div class="book">
+                <div class="price">€12.50</div>
+                <img src="images/book4.jfif" alt="Roméo et Juliette">
+                <h3>Les Quatre Accords Toltéques</h3>
+                <p>Un guide vers la liberté personnelle et la paix intérieure.</p>
+            </div>
+        </div>
+    </section>
+
+    <h2 class="commentaire">TÉMOIGNAGES</h2>
+    <div class="testimonials-container">
+      <!-- Témoignage 1 -->
+      <div class="testimonial-card">
+        <img src="images/image1.jpg" alt="Jean Dupont" class="testimonial-image">
+        <div class="testimonial-name"> Marie Martin</div>
+        <div class="testimonial-rating">★★★★★</div>
+        <p class="testimonial-text">Cette bibliothèque virtuelle a complètement changé ma façon de lire. J'adore les recommandations personnalisées !</p>
+      </div>
+      <!-- Témoignage 2 -->
+      <div class="testimonial-card">
+        <img src="images/image2.jpg" alt="Marie Martin" class="testimonial-image">
+        <div class="testimonial-name"> Jean Dupont</div>
+        <div class="testimonial-rating">★★★★★</div>
+        <p class="testimonial-text">La possibilité d'accéder à des livres à tout moment est vraiment géniale. Je peux lire même en voyage.</p>
+      </div>
+      <!-- Témoignage 3 -->
+      <div class="testimonial-card">
+        <img src="images/image3.jpg" alt="Alex Bernard" class="testimonial-image">
+        <div class="testimonial-name">Alex Bernard</div>
+        <div class="testimonial-rating">★★★★☆</div>
+        <p class="testimonial-text">La collection diversifiée m'aide à découvrir de nouveaux genres et auteurs que je n'aurais jamais connus autrement.</p>
+      </div>
+    </div>
+
+    <section class="about">
+        <div class="text">
+            <h2>À Propos</h2>
+            <p>Notre bibliothèque est dédiée à tous les amoureux des livres.
+                Rejoignez-nous pour une aventure littéraire inoubliable!
+            </p>
+            <button class="Plus"><a href="categories.html">En savoir plus</a></button>
+        </div>
+        <div class="image">
+            <img src="images/1111.jpeg">
+        </div>
+    </section>
+    <section class="double-section">
+        <div class="content">
+            <div class="right-div">
+                <h2>Recommandations Personnalisées</h2>
+                <p>Recevez des suggestions de livres basées sur vos goûts, parce que
+                    chaque lecteur mérite une expérience sur mesure.
+                </p>
+            </div>
+            <div class="left-div">
+                <h2>Genres Littéraires</h2>
+                <p>Explorez une vaste sélection de genres littéraires, de la science-fiction
+                    à la romance, et trouvez votre prochaine lecture coup de cœur !
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="IMAGES-gallery">
+        <div class="IMAGES">
+            <img src="images/phooto.jpeg">
+            <img src="images/photoo.jpg">
+            <img src="images/photo.jpg">
+            <img src="images/2222.jpeg">
+        </div>
+    </section>
+    <section class="books-section">
+        <!-- Titre principal et paragraphe -->
+        <div class="main-header">
+            <h1>Découvrez nos livres</h1>
+            <p>Plongez dans notre collection de livres soigneusement sélectionnés.
+                Que vous soyez un amateur de thrillers ou un passionné de poésie, nous avons quelque chose pour vous !
+            </p>
+        </div>
+
+        <!-- Contenu principal -->
+        <div class="content">
+            <!-- Ligne noire solide à gauche -->
+
+
+            <!-- Types de livres à droite -->
+            <div class="book-types">
+                <div class="book-type">
+                    <h2>Science-Fiction</h2>
+                    <p>Voyagez à travers le temps et l'espace avec nos romans de science-fiction.
+                        Des mondes futuristes aux technologies impossibles, préparez-vous à être émerveillé !
+                    </p>
+                </div>
+                <div class="book-type">
+                    <h2>Romance Éternelle</h2>
+                    <p>Laissez-vous emporter par des histoires d'amour passionnantes. Que ce soit un coup
+                        de foudre ou une romance tragique, chaque page vous fera vibrer !
+                    </p>
+                </div>
+                <div class="book-type">
+                    <h2> Aventure Épique</h2>
+                    <p>
+                        Partez à l'aventure avec nos livres palpitants. Des quêtes épiques aux mystères à résoudre,
+                        chaque livre est une nouvelle aventure qui vous attend.<br>...........
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>© 2025 Bibliothèque Virtuelle. Tous droits réservés.</p>
+    </footer>
+</body>
+
+</html>

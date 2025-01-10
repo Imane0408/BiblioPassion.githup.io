@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Nos Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #b9c8bc;
+            color: white;
+        }
+
+        /* Menu */
+        .menu {
+            background-color: #b9c8bc;
+            padding: 10px 0;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        h3 {
+            color: black;
+        }
+
+        h3:hover {
+            transform: scale(1.2);
+            background-color: #38493c;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar input {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .search-bar button {
+            padding: 5px 10px;
+            border: none;
+            background-color: #5c3030;
+            color: white;
+            cursor: pointer;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .search-bar button:hover {
+            background-color: #777;
+        }
+
+        nav .menu {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav .menu li {
+            position: relative;
+        }
+
+        nav .menu a {
+            text-decoration: none;
+            color: black;
+            padding: 5px 10px;
+        }
+
+        nav .menu a:hover {
+            background-color: #38493c;
+            border-radius: 5px;
+        }
+
+        .genre-section {
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f9f9f9;
+        }
+
+        .genre-image-container {
+            position: relative;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .genre-image-container img {
+            width: 100%;
+            height: 300px;
+            display: block;
+        }
+
+        .text-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .text-overlay h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .text-overlay p {
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
+
+        .about {
+
+            border-radius: 8px;
+            background-color: #b9c8bc;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .text {
+            width: 50%;
+        }
+
+        .text h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .text p {
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto 20px;
+            line-height: 1.6;
+            font-size: 1.1em;
+        }
+
+        .image img {
+            float: right;
+            width: 50%;
+            height: 60%;
+            margin-right: 10%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .Plus {
+            background-color: #032205;
+            color: white;
+            border-radius: 20px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .Plus a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .Plus:hover {
+            background-color: #45a049;
+        }
+        .why-bibliopassion {
+            padding: 40px 20px;
+            background-color: wheat;
+            border-radius: 10px;
+        }
+
+        .why-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            /* Responsive design */
+        }
+
+        /* Titre à gauche */
+        .title-left {
+            flex: 1;
+            text-align: left;
+        }
+
+        .title-left h2 {
+            font-size: 1.8em;
+            color: #333;
+            margin: 0;
+        }
+
+        /* Image au centre */
+        .image-center {
+            flex: 1;
+            text-align: center;
+        }
+
+        .image-center img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Paragraphe à droite */
+        .text-right {
+            flex: 1;
+            text-align: justify;
+        }
+
+        .text-right p {
+            font-size: 1em;
+            color: rgb(14, 13, 13);
+            line-height: 1.6;
+        }
+        /* Section FAQ */
+.faq-section {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+/* Titre FAQ */
+.faq-section h2 {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* FAQ container */
+.faq {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* Élément FAQ */
+.faq-item {
+  margin: 20px 0;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Cacher la réponse par défaut */
+.answer {
+  display: none;
+  margin-top: 10px;
+  font-size: 1em;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Afficher la réponse lorsque la case est cochée */
+.faq-checkbox:checked + .question + .answer {
+  display: block;
+}
+
+/* Question avec style */
+.question {
+  font-size: 1.2em;
+  color: #333;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Icône ou changement lors du survol */
+.question:hover {
+  color: #4CAF50; /* Changement de couleur */
+}
+
+/* Transition d'affichage */
+.faq-checkbox:checked + .question::after {
+  font-size: 1.5em;
+  color: #4CAF50;
+  position: absolute;
+  right: 10px;
+  top: 0;
+  transition: transform 0.3s ease;
+}
+
+/* Icône de fermeture pour les questions */
+.question::after {
+  font-size: 1.5em;
+  color: #4CAF50;
+  position: absolute;
+  right: 10px;
+  top: 0;
+  transition: transform 0.3s ease;
+}
+        footer {
+            text-align: center;
+            padding: 10px;
+            color: rgb(29, 25, 25);
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.jfif" alt="logo bibliopassion">
+            <h3>BiblioPassion</h3>
+        </div>
+        <div search-bar>
+            <input type="text" placeholder="Rechercher....">
+            <button type="submit">🔍</button>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html"><span class="icon">🏠</span>Accueil</a></li>
+                <li><a href="PourVous.html"><span class="icon">ℹ️</span>À propos</a></li>
+                <li><a href="categories.html"><span class="icon">💼</span>Catégories</a></li>
+                <li><a href="contact.html"><span class="icon">📞</span>Se Connecter</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="genre-section">
+        <div class="genre-image-container">
+            <img src="images/img.jpeg" alt="Genre Littéraire">
+            <div class="text-overlay">
+                <h2>Genres Littéraires</h2>
+                <p>Explorez une multitude de genres littéraires, de la science-fiction aux romances
+                    en passant par l'histoire. Chaque genre est une porte ouverte sur un monde d'imagination et
+                    d'émotions. Préparez-vous à être transporté!
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="about">
+        <div class="text">
+            <h2>Recommendations Personnalisées Pour Vous</h2>
+            <p>Nos experts en littérature ont sélectionné des livres qui vous feront vibrer. Que vous soyez un amateur
+                de thrillers ou un passionné de poésie, nous avons quelque chose pour vous!
+            </p>
+            <button class="Plus"><a href="categories.html">Voir les recommandations</a></button>
+        </div>
+        <div class="image">
+            <img src="images/photo-1484415063229-3d6335668531.jpeg">
+        </div>
+    </section>
+    <section class="why-bibliopassion">
+        <div class="why-container">
+            <div class="title-left">
+                <h2>Pourquoi choisir Bibliopassion ?</h2>
+            </div>
+            <div class="image-center">
+                <img src="images/image.jpg" alt="Pourquoi Bibliopassion">
+            </div>
+            <div class="text-right">
+                <p><mark>Bibliopassion</mark> est une bibliothèque virtuelle conçue pour les passionnés de lecture.
+                    Nous offrons une expérience unique grâce à notre vaste collection de livres, des recommandations
+                    personnalisées et une interface intuitive pour tous.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="faq-section">
+        <h2>Questions Fréquemment Posées</h2>
+        
+        <div class="faq">
+          <!-- Question 1 -->
+          <div class="faq-item">
+            <input type="checkbox" id="question1" class="faq-checkbox">
+            <label for="question1" class="question">Comment puis-je trouver un livre ?</label>
+            <div class="answer">
+              Utilisez la barre de recherche en haut de la page ou explorez nos différentes catégories de livres.
+            </div>
+          </div>
+          
+          <!-- Question 2 -->
+          <div class="faq-item">
+            <input type="checkbox" id="question2" class="faq-checkbox">
+            <label for="question2" class="question">Y a-t-il des livres gratuits ?</label>
+            <div class="answer">
+              Oui, nous avons une sélection de livres gratuits disponibles dans diverses catégories.
+            </div>
+          </div>
+          
+          <!-- Question 3 -->
+          <div class="faq-item">
+            <input type="checkbox" id="question3" class="faq-checkbox">
+            <label for="question3" class="question">Puis-je laisser des avis ?</label>
+            <div class="answer">
+              Oui, vous pouvez laisser des avis sur chaque livre que vous avez lu, afin de partager vos impressions avec la communauté.
+            </div>
+          </div>
+          <!-- Question 4 -->
+          <div class="faq-item">
+            <input type="checkbox" id="question4" class="faq-checkbox">
+            <label for="question4" class="question">Quels genres de livres sont disponibles ?</label>
+            <div class="answer">
+               Nous proposons une variété de genres, notamment la fiction, les romans policiers,la science-fiction,la
+               fantasy, les biographies, et bien d'autres encore.Explorez notre bibliothéque pour découvrir vos favoris .
+            </div>
+          </div>
+          <div class="faq-item">
+            <input type="checkbox" id="question5" class="faq-checkbox">
+            <label for="question5" class="question">Proposez-vous des livres dans d'autres langues ?</label>
+            <div class="answer">
+               Absoluments ! Notre bibliothéque propose des livres en français,anglais,arabe,et d'autres langues 
+               selon la disponibilité.
+            </div>
+          </div>
+        </div>
+      </section>
+    <footer>
+        <p>© 2025 Bibliothèque Virtuelle. Tous droits réservés.</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BiblioPassion</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0px;
+      padding: 0px;
+      background-color: #F0F0F0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: cadetblue;
+      color: white;
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    h3 {
+      color: #333333;
+    }
+
+    h3:hover {
+      transform: scale(1.2);
+      background-color: #A8D0E6;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+    }
+
+    .search-bar input {
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px 0 0 5px;
+    }
+
+    .search-bar button {
+      padding: 5px 10px;
+      border: none;
+      background-color: #555;
+      color: white;
+      cursor: pointer;
+      border-radius: 0 5px 5px 0;
+    }
+
+    .search-bar button:hover {
+      background-color: #777;
+    }
+
+    nav .menu {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav .menu li {
+      position: relative;
+    }
+
+    nav .menu a {
+      text-decoration: none;
+      color: #333333;
+      padding: 5px 10px;
+    }
+
+    nav .menu a:hover {
+      background-color: #A8D0E6;
+      border-radius: 5px;
+    }
+
+    /* Container de la section des catégories */
+    .categories-section {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 50px;
+    }
+
+    /* Divs qui contiennent chaque catégorie */
+    .category-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* Style de base pour chaque catégorie */
+    .category {
+      background: #F5F5DC;
+      padding: 20px;
+      border-radius: 10px;
+      width: 200px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Animation qui incline les divs */
+    .category:hover {
+      transform: rotate(0deg);
+      box-shadow: 4px 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Inclinaison initiale des divs */
+    .category:nth-child(1) {
+      transform: rotate(-5deg);
+    }
+
+    .category:nth-child(2) {
+      transform: rotate(5deg);
+    }
+
+    .category:nth-child(3) {
+      transform: rotate(-5deg);
+    }
+
+    .category:nth-child(4) {
+      transform: rotate(5deg);
+    }
+
+    h3 {
+      font-size: 18px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 36px;
+      color: #333;
+      margin-bottom: 30px;
+    }
+    h1:hover { color: cadetblue;}
+    /* Container de la section des genres */
+    .categories-section {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 50px;
+      gap: 20px;
+    }
+
+    /* Style pour chaque catégorie */
+    .category {
+      background: #f0f0f0;
+      padding: 20px;
+      border: 2px solid cadetblue;
+      border-radius: 10px;
+      width: 200px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+      margin-bottom: 10px;
+    }
+
+    /* Symboles dans les cercles */
+    .symbol {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      line-height: 30px;
+      font-size: 18px;
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .category:hover {
+      transform: rotate(0deg);
+      box-shadow: 4px 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Style spécifique pour l'élément de l'aventure infinie */
+    #category4 .symbol {
+      background-color: #ff5722;
+      font-size: 24px;
+      /* Grande taille pour l'icône de flèche */
+    }
+
+    /* Ajustement des titres */
+    h2 {
+      font-size: 18px;
+      color: #333;
+      margin-top: 40px;
+      /* Pour ajouter de l'espace après le symbole */
+    }
+
+    .book-section {
+      padding: 2rem;
+      text-align: center;
+      margin-top: 1Opx;
+
+    }
+
+    .book-section h2 {
+      margin-bottom: 1rem;
+      color: #4CAF50;
+    }
+
+    .book-list {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .book-item {
+      background: white;
+      border: 1px solid #4CAF50;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      width: 180px;
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .book-item:hover {
+      transform: scale(1.05);
+    }
+
+    .book-item img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+
+    .book-item h3 {
+      font-size: 1rem;
+      margin: 0.5rem 0;
+    }
+
+    .book-item p {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      color: rgb(29, 25, 25);
+      margin-top: 20px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <img src="images/logo.jfif" alt="logo bibliopassion">
+      <h3>BiblioPassion</h3>
+    </div>
+    <div search-bar>
+      <input type="text" placeholder="Rechercher....">
+      <button type="submit">🔍</button>
+    </div>
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html"><span class="icon">🏠</span>Accueil</a></li>
+        <li><a href="PourVous.html"><span class="icon">ℹ️</span>À propos</a></li>
+        <li><a href="categories.html"><span class="icon">💼</span>Catégories</a></li>
+        <li><a href="contact.html"><span class="icon">📞</span>Se Connecter</a></li>
+      </ul>
+    </nav>
+  </header>
+  <h1>Genres littéraires</h1>
+
+  <div class="categories-section">
+    <div class="category" id="category1">
+      <div class="symbol">1</div>
+      <h2>Science-Fiction épique</h2>
+    </div>
+
+    <div class="category" id="category2">
+      <div class="symbol">2</div>
+      <h2>Romances Envoûtantes</h2>
+
+    </div>
+
+    <div class="category" id="category3">
+      <div class="symbol">3</div>
+      <h2>Histoire captivante</h2>
+    </div>
+
+    <div class="category" id="category4">
+      <div class="symbol">→</div>
+      <h2>Aventure infinie</h2>
+    </div>
+  </div>
+  <!-- Section Science Fiction -->
+  <div class="book-section">
+    <h2>Science Fiction Épique</h2>
+    <div class="book-list">
+      <div class="book-item">
+        <img src="images/téléchargement1.jfif" alt="Livre 1">
+        <h3>Les Mondes LointainS</h3>
+        <p>Auteur : Jules Verne</p>
+      </div>
+      <div class="book-item">
+        <img src="images/287352555-256-k217475.jpg" alt="Livre 2">
+        <h3>The Virus Within: Third Wave (Book 2)</h3>
+        <p>Auteur : Isaac Asimov</p>
+      </div>
+      <div class="book-item">
+        <img src="images/téléchargement2.jfif" alt="Livre 3">
+        <h3>La Dernière Frontière</h3>
+        <p>Auteur : Frank Herbert</p>
+      </div>
+      <div class="book-item">
+        <img src="images/LOOO.jpg" alt="Livre 4">
+        <h3>Teaming Up With System 225</h3>
+        <p>Auteur : Jules Verne</p>
+      </div>
+      <div class="book-item">
+        <img src="images/livre5.jpg" alt="Livre 5">
+        <h3> The Virus Within</h3>
+        <p>Auteur : Jules Verne</p>
+      </div>
+      <div class="book-item">
+        <img src="images/livre6.jpg" alt="Livre 6">
+        <h3>Ultima Ratio</h3>
+        <p>Auteur : Jules Verne</p>
+      </div>
+    </div>
+  </div>
+  <!-- Section Romance -->
+  <div class="book-section">
+    <h2>Romance Envoûtante</h2>
+    <div class="book-list">
+      <div class="book-item">
+        <img src="images/LIvre11.jfif" alt="Livre 1">
+        <h3>Amour Impossible</h3>
+        <p>Auteur : Jane Austen</p>
+      </div>
+      <div class="book-item">
+        <img src="images/livre22.jfif" alt="Livre 2">
+        <h3>À Travers le Temps</h3>
+        <p>Auteur : Nicholas Sparks</p>
+      </div>
+      <div class="book-item">
+        <img src="images/livre33.jpg" alt="Livre 3">
+        <h3>The Billionaire's Sweet Trouble</h3>
+        <p>Auteur : Nora Roberts</p>
+      </div>
+      <div class="book-item">
+        <img src="images/livre44.jfif" alt="Livre 4">
+        <h3>Purpel Hearts</h3>
+        <p>Auteur : Jules Verne</p>
+      </div>
+      <div class="book-item">
+        <img src="images/livre55.jpg" alt="Livre 5">
+        <h3>Finding Rosie</h3>
+        <p>Auteur : Jules Verne</p>
+      </div>
+      <div class="book-item">
+        <img src="images/livre66.jpg" alt="Livre 6">
+        <h3>My Billionaire Cowboy Under the Mistletoe</h3>
+        <p>Auteur : Jules Verne</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section Histoire -->
+  <div class="book-section">
+    <h2>Histoire Captivante</h2>
+    <div class="book-list">
+      <div class="book-item">
+        <img src="images/livre111.jfif" alt="Livre 1">
+        <h3>Les Années Oubliées</h3>
+        <p>Auteur : Ken Follett</p>
+      </div>
+      <div class="book-item">
+        <img src="images/livre222.jfif" alt="Livre 2">
+        <h3>Le Temps des Rois</h3>
+        <p>Auteur : Hilary Mantel</p>
+      </div>
+      <div class="book-item">
+        <img src="images/livre333.jfif" alt="Livre 3">
+        <h3> les misérables</h3>
+        <p>Auteur : Victor Hugo/p>
+      </div>
+      <div class="book-item">
+        <img src="images/livre444.jfif" alt="Livre 4">
+        <h3>L'Alchimiste</h3>
+        <p>Auteur : Paulo Coelho</p>
+      </div>
+      <div class="book-item">
+        <img src="images/livre555.jfif" alt="Livre 5">
+        <h3>Shantaram</h3>
+        <p>Auteur : Gregory David Roberts</p>
+      </div>
+      <div class="book-item">
+        <img src="images/livre666.jfif" alt="Livre 6">
+        <h3>La Peste</h3>
+        <p>Auteur : Albert Camus</p>
+      </div>
+    </div>
+  </div>
+  <!-- ADVENTURE -->
+  <div class="book-section">
+    <h2> Adventure </h2>
+    <div class="book-list">
+      <div class="book-item">
+        <img src="images/PHOTOA1.jpg" alt="Livre 1">
+        <h3> The Last of the Dragons-Set 1</h3>
+        <p>Auteur : Jules Verne</p>
+      </div>
+      <div class="book-item">
+        <img src="images/PHOTOA2.jpg" alt="Livre 2">
+        <h3>The Alpha's Rejection</h3>
+        <p>Auteur : Isaac Asimov</p>
+      </div>
+      <div class="book-item">
+        <img src="images/PHOTOA3.jpg" alt="Livre 3">
+        <h3>Lovesick Brothers</h3>
+        <p>Auteur : Frank Herbert</p>
+      </div>
+      <div class="book-item">
+        <img src="images/PHOTOA4.jpg" alt="Livre 4">
+        <h3> In Another Era </h3>
+        <p>Auteur : Jules Verne</p>
+      </div>
+      <div class="book-item">
+        <img src="images/PHOTOA5.jpg" alt="Livre 5">
+        <h3>
+          Konosuba: God's Blessing of the God of</h3>
+        <p>Auteur : Jules Verne</p>
+      </div>
+      <div class="book-item">
+        <img src="images/PHOTOA6.jpg" alt="Livre 6">
+        <h3> Lost Luna</h3>
+        <p>Auteur : Jules Verne</p>
+      </div>
+    </div>
+  </div>
+  <!-- ANIME -->
+  <div class="book-section">
+    <h2> Anime's books </h2>
+    <div class="book-list">
+      <div class="book-item">
+        <img src="images/LIVREE.jfif" alt="Livre 1">
+        <h3>Attack on titan</h3>
+        <p>Auteur : Jules Verne</p>
+      </div>
+      <div class="book-item">
+        <img src="images/LIVREA.jfif" alt="Livre 2">
+        <h3>Demon Slayer</h3>
+        <p>Auteur : Isaac Asimov</p>
+      </div>
+      <div class="book-item">
+        <img src="images/LIVREEE.jfif" alt="Livre 3">
+        <h3>Fulmatel Alchemiste</h3>
+        <p>Auteur : Frank Herbert</p>
+      </div>
+      <div class="book-item">
+        <img src="images/LIVREO.jfif" alt="Livre 4">
+        <h3>The Promised neverland</h3>
+        <p>Auteur : Jules Verne</p>
+      </div>
+      <div class="book-item">
+        <img src="images/LIVREI.jfif" alt="Livre 5">
+        <h3>Haikyuu !!</h3>
+        <p>Auteur : Jules Verne</p>
+      </div>
+      <div class="book-item">
+        <img src="images/LIVRE.jfif" alt="Livre 6">
+        <h3>jujutsu kaisen</h3>
+        <p>Auteur : Jules Verne</p>
+      </div>
+    </div>
+  </div>
+  <!-- Section D'Arabe-->
+  <div class="book-section">
+    <h2>Des livres en Arabe</h2>
+    <div class="book-list">
+      <div class="book-item">
+        <img src="images/ARB1.jfif" alt="Livre 1">
+        <h3>موسم صيد الغزلان</h3>
+        <p>الكاتب : أحمد مراد</p>
+      </div>
+      <div class="book-item">
+        <img src="images/arb2.jfif" alt="Livre 2">
+        <h3> الحرب و السلام</h3>
+        <p> الكاتب : ليف تولستوي </p>
+      </div>
+      <div class="book-item">
+        <img src="images/arb3.jfif" alt="Livre 3">
+        <h3> الحي</h3>
+        <p> الكاتب : مارسيل بروست</p>
+      </div>
+      <div class="book-item">
+        <img src="images/arb4.jfif" alt="Livre 4">
+        <h3> البحت عن الزمن المفقود</h3>
+        <p>الكاتب : مارسيل بروست </p>
+      </div>
+      <div class="book-item">
+        <img src="images/arbb5.jfif" alt="Livre 5">
+        <h3>أولاد حارتنا</h3>
+        <p> الكاتب : نجيب محفوظ</p>
+      </div>
+      <div class="book-item">
+        <img src="images/arb6.jfif" alt="Livre 6">
+        <h3> موسم الهجرة إلى الشمال</h3>
+        <p> الكاتب : الطيب شافي</p>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p>© 2025 Bibliothèque Virtuelle. Tous droits réservés.</p>
+  </footer>
+</body>
+
+</html>

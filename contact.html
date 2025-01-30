@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contactez nous</title>
+    <link href="bootstrap.min.css" rel="stylesheet">
     <style>
         /* Style global */
         body {
@@ -13,25 +14,31 @@
             padding: 0;
             background-color: #f9f9f9;
         }
+
         header {
+            background-color: #9E1B32;
+            padding: 10px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
-            background-color: #9E1B32;
-            color: white;
         }
-        /* Menu */
-        .menu {
-            background-color: #9E1B32;
-            padding: 10px 0;
+
+        .logo {
+            display: inline-block;
         }
+
         .logo img {
             height: 50px;
         }
 
+        .logo img:hover {
+            transform: scale(1.3);
+        }
+
         h3 {
+            font-size: 20px;
             color: black;
+            margin-top: 10px;
         }
 
         h3:hover {
@@ -39,80 +46,31 @@
             background-color: beige;
         }
 
-        .search-bar {
-            display: flex;
-            align-items: center;
-        }
+
 
         .search-bar input {
-            padding: 5px;
             border: 1px solid #ccc;
-            border-radius: 5px 0 0 5px;
+            border-radius: 5px ;
         }
-
-        .search-bar button {
-            padding: 5px 10px;
-            border: none;
-            background-color: #555;
-            color: white;
-            cursor: pointer;
-            border-radius: 0 5px 5px 0;
-        }
-    
-        .search-bar button:hover {
-            background-color: #777;
-        }
-
-        nav .menu {
-            list-style: none;
-            display: flex;
-            gap: 15px;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav .menu li {
-            position: relative;
-        }
-
-        nav .menu a {
+         .menu a {
             text-decoration: none;
             color: black;
             padding: 5px 10px;
         }
 
-        nav .menu a:hover {
+        .menu a:hover {
             background-color: beige;
             border-radius: 5px;
         }
+
         /* Section Formulaire */
         .form-section {
-            max-width: 600px;
-            margin: 50px auto;
-            background: white;
-            padding: 20px;
+            max-width: 650px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        label {
-            margin-top: 15px;
-            font-weight: bold;
-        }
-
         button {
-            margin-top: 20px;
-            padding: 10px;
             background-color: #9E1B32;
             color: white;
             border: none;
@@ -121,8 +79,9 @@
         }
 
         button:hover {
-           color: black;
+            color: black;
         }
+
         footer {
             text-align: center;
             padding: 10px;
@@ -133,40 +92,51 @@
 </head>
 
 <body>
-    <header>
-        <div class="logo">
-            <img src="images/logo.jfif" alt="logo bibliopassion">
-            <h3>BiblioPassion</h3>
-        </div>
-        <div search-bar>
-            <input type="text" placeholder="Rechercher....">
-            <button type="submit">🔍</button>
-        </div>
-        <nav>
-            <ul class="menu">
-                <li><a href="index.html"><span class="icon">🏠</span>Accueil</a></li>
-                <li><a href="PourVous.html"><span class="icon">ℹ️</span>À propos</a></li>
-                <li><a href="categories.html"><span class="icon">💼</span>Catégories</a></li>
-                <li><a href="contact.html"><span class="icon">📞</span>Se Connecter</a></li>
+    <header class="navbar navbar-expand-lg ">
+        <div class="container-fluid">
+          <div class="logo">
+            <img src="images/logo2.png" alt="logo bibliopassion" class="img-fluid" style="height: 50px;">
+            <h3 class="fw-bold ">BiblioPassion</h3>
+          </div>
+          <div class="search-bar d-flex ms-auto">
+            <input type="text" class="form-control" placeholder="Rechercher....">
+            <button class="btn   ms-2" type="submit">🔍</button>
+          </div>
+          <nav class="navbar-nav ms-auto">
+            <ul class="menu list-unstyled d-flex gap-3 mb-0">
+              <li><a href="index.html" class="nav-link">🏠 Accueil</a></li>
+              <li><a href="PourVous.html" class="nav-link">ℹ️ À propos</a></li>
+              <li><a href="categories.html" class="nav-link">💼 Catégories</a></li>
+              <li><a href="contact.html" class="nav-link">📞 Se Connecter</a></li>
             </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="form-section">
-            <h1>Se connecter</h1>
-            <form id="login-form">
-                <label for="name">Nom d'utilisateur :</label>
-                <input type="text" id="name" name="name" placeholder="Entrez votre nom" required>
-
-                <label for="email">Gmail :</label>
-                <input type="email" id="email" name="email" placeholder="Entrez votre email" required>
-
-                <label for="Passe">Mot de Passe :</label>
-                <input type="password" id="Passe" name="Passe" placeholder="Entrez votre mot de passe" required>
-                <button type="submit">Se connecter</button>
-            </form>
-        </section>
-    </main>
+          </nav>
+        </div>
+      </header>
+    <section class="form-section container mt-5 bg-white p-20">
+        <h2 class="text-center text-dark">Se connecter</h2>
+        <form id="login-form" class="p-4 bg-white rounded shadow">
+            <div class="mb-3">
+                <label for="name" class="form-label fw-bold mt-15">Nom d'utilisateur :</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="Entrez votre nom" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label fw-bold mt-15">Gmail :</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Entrez votre email"
+                    required>
+            </div>
+            <div class="mb-3">
+                <label for="Passe" class="form-label fw-bold mt-15">Mot de Passe :</label>
+                <input type="password" id="Passe" name="Passe" class="form-control"
+                    placeholder="Entrez votre mot de passe" required>
+            </div>
+            <div class="mb-3">
+                <label for="name" class="form-label fw-bold mt-10">Votre message :</label>
+                <textarea class="form-control" rows="2" name="mesage" id="mesage"
+                    placeholder="Entrez Votre message ici ....."></textarea>
+            </div>
+            <button type="submit" class="w-100 mt-20 p-10">Se connecter</button>
+        </form>
+    </section>
     <footer>
         <p>© 2025 Bibliothèque Virtuelle. Tous droits réservés.</p>
     </footer>

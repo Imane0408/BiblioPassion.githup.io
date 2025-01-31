@@ -422,7 +422,6 @@
             margin: 20px;
             padding: 0 20px;
         }
-
         .testimonial-card {
             background-color: #fff;
             border-radius: 8px;
@@ -431,12 +430,10 @@
             text-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
         }
-
         .testimonial-card:hover {
             transform: scale(1.05);
             box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
         }
-
         .testimonial-image {
             width: 80px;
             height: 80px;
@@ -483,7 +480,11 @@
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
+        .page-link {
+            background-color: beige;
+        }
         .card-footer {
+            font-size: 20px;
             border: none;
             color: rgb(29, 25, 25);
 
@@ -674,6 +675,24 @@
             Votre navigateur ne supporte pas la lecture de vidéos.
         </video>
     </div>
+    <nav aria-label="Pagination" class=" d-flex justify-content-center my-4">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="index.html" aria-label="Précédent">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item"><a class="page-link" href="index.html">1</a></li>
+          <li class="page-item"><a class="page-link" href="PourVous.html">2</a></li>
+          <li class="page-item"><a class="page-link" href="categories.html">3</a></li>
+          <li class="page-item"><a class="page-link" href="contact.html">4</a></li>
+          <li class="page-item">
+            <a class="page-link" href="PourVous.html" aria-label="Suivant">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
     <div class="card-footer p-10 mt-20 text-center ">
         <p>© 2025 Bibliothèque Virtuelle. Tous droits réservés.</p>
     </div>
